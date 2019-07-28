@@ -36,35 +36,28 @@ class Tribe__Extension__Set__Default__Ticket__QTY extends Tribe__Extension {
      * Extension initialization and hooks.
      */
     public function init() {
-
-        $src_file = plugins_url( 'tribe-custom.js', __FILE__ );
-
-        wp_register_script( 'tribe-custom-ticket-qty',
-            $src_file,
-            array( 'jquery',
-                   'event-tickets-tickets-rsvp-js',
-                   'tribe_tickets_frontend_tickets',
-                   'event-tickets-tpp-js'
-            ),
-            self::$version,
-            true
-        );
-
-        add_action( 'wp_enqueue_scripts', array( $this, 'set_default_quantity_for_tickets' ), 999);
+        add_action( 'wp_enqueue_scripts', array( $this, 'set_default_quantity_for_tickets' ), 99 );
     }
 
     /**
      * Check if it's the Events single page and enqueue custom script
      *
-     * @return bool
+     * @return
      */
     function set_default_quantity_for_tickets() {
+
         // bail out if not on a Single Event page
-        if ( ! function_exists( 'tribe_is_event' ) || ! tribe_is_event() ) {
-            return false;
+        if ( ! is_single() || ! function_exists( 'tribe_is_event' ) || ! tribe_is_event() ) {
+            return;
         }
 
-        wp_enqueue_script( 'tribe-custom-ticket-qty' );
-    }
+        $src_file = plugins_url( 'tribe-custom.js', __FILE__ );
 
+        wp_enqueue_script( 'tribe-custom-ticket-qty',
+            $src_file,
+            ['jquery'],
+            self::$version,
+            true
+        );
+    }
 }
