@@ -40,16 +40,19 @@ class Tribe__Extension__Set__Default__Ticket__QTY extends Tribe__Extension {
     }
 
     /**
-     * Check if it's the Events single page and enqueue custom script
+     * Load the custom JS to set default
      *
-     * @return
+     * @since 1.0.0
+     *
+     * @return void
      */
     function set_default_quantity_for_tickets() {
 
-        // bail out if not on a Single Event page
-        if ( ! is_single() || ! function_exists( 'tribe_is_event' ) || ! tribe_is_event() ) {
-            return;
-        }
+    	$load_js = apply_filters( 'tribe_ext_set_default_qty_load_js', $this->is_valid_post_type() );
+
+    	if ( ! $load_js ) {
+		    return;
+	    }
 
         $src_file = plugins_url( 'tribe-custom.js', __FILE__ );
 
@@ -60,4 +63,28 @@ class Tribe__Extension__Set__Default__Ticket__QTY extends Tribe__Extension {
             true
         );
     }
+
+	/**
+	 * Check if the current post is a valid post type for tickets
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return bool
+	 */
+	function is_valid_post_type() {
+		// bail out if not on a Single Event page
+		if ( ! is_single()  ) {
+			return false;
+		}
+
+		if ( ! class_exists( 'Tribe__Tickets__Main' ) ) {
+			return false;
+		}
+
+		if ( ! in_array( get_post_type(), Tribe__Tickets__Main::instance()->post_types() ) ) {
+			return false;
+		}
+
+		return true;
+	}
 }
