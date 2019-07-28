@@ -1,13 +1,22 @@
 ;(function ($) {
-    var wrapper = $('.tribe-events-tickets');
+    var container = $('.tribe-events-tickets');
+    var block_container = $('.tribe-block__tickets');
 
     var Tribe_Ticket_Qty = {
         init: function () {
             var self = this;
             // wrapper.find( 'input.tribe-ticket-quantity, .woocommerce .quantity input.qty, .edd.quantity input.edd-input' ).val(1);
-            $inputs = wrapper.find('input.tribe-ticket-quantity');
-            $inputs.val(1);
-            $inputs.trigger('change');
+            if (container.length) {
+                $inputs = container.find('input.tribe-ticket-quantity');
+                $inputs.val(1);
+                $inputs.trigger('change');
+            }
+
+            if (block_container.length) {
+                $inputs = block_container.find('input.tribe-ticket-quantity');
+                $inputs.val(1);
+                $inputs.trigger('change');
+            }
         },
 
     };
