@@ -7,7 +7,7 @@
             var self = this;
             // wrapper.find( 'input.tribe-ticket-quantity, .woocommerce .quantity input.qty, .edd.quantity input.edd-input' ).val(1);
             if (container.length) {
-                $inputs = container.find('input.tribe-ticket-quantity');
+                $inputs = container.find('input.tribe-ticket-quantity, .woocommerce .quantity input.qty, .edd.quantity input.edd-input');
                 $inputs.val(1);
                 $inputs.trigger('change');
             }
