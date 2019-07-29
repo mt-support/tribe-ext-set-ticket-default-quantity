@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     The Events Calendar Extension: Set default quantity of tickets to 1
+ * Plugin Name:     Events Tickets Extension: Set default quantity of tickets to 1
  * Description:     An extension that Sets default quantity for tickets
  * Version:         1.0.0
  * Extension Class: Tribe__Extension__Set__Default__Ticket__QTY
