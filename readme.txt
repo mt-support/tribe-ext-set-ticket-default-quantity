@@ -1,4 +1,4 @@
-=== Event Tickets Extension: PDF Tickets ===
+=== Events Tickets Extension: Set default quantity of tickets ===
 Contributors: ModernTribe
 Donate link: http://m.tri.be/29
 Tags: events, calendar
