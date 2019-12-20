@@ -1,6 +1,6 @@
 ;(function ($) {
     var container = $('.tribe-events-tickets');
-    var block_container = $('.tribe-block__tickets');
+    var block_container = $('form#tribe-tickets');
 
     var Tribe_Ticket_Qty = {
         init: function () {
@@ -13,7 +13,7 @@
             }
 
             if (block_container.length) {
-                $inputs = block_container.find('input.tribe-ticket-quantity');
+                $inputs = block_container.find('input.tribe-tickets-quantity');
                 $inputs.val(1);
                 $inputs.trigger('change');
             }
