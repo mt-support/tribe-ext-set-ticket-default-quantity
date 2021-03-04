@@ -3,9 +3,9 @@ Contributors: ModernTribe
 Donate link: http://m.tri.be/29
 Tags: events, calendar
 Requires at least: 4.7
-Tested up to: 5.2
+Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPL version 2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,3 +34,11 @@ Please visit our [extension library](https://theeventscalendar.com/extensions/) 
 We're always interested in your feedback and our [premium forums](https://theeventscalendar.com/support-forums/) are the best place to flag any issues. Do note, however, that the degree of support we provide for extensions like this one tends to be very limited.
 
 == Changelog ==
+
+= [1.1.0] 2021-03-04 =
+
+* Tweak - Added compatibility for newer Ticket V2 views.
+
+= [1.0.1] 2020-03-20 =
+
+* Initial Release.
