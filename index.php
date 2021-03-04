@@ -56,9 +56,10 @@ class Tribe__Extension__Set__Default__Ticket__QTY extends Tribe__Extension {
 
         $src_file = plugins_url( 'tribe-custom.js', __FILE__ );
 
-        wp_enqueue_script( 'tribe-custom-ticket-qty',
+        wp_enqueue_script(
+        	'tribe-custom-ticket-qty',
             $src_file,
-            ['jquery'],
+            [ 'jquery', 'tribe-tickets-block' ],
             self::$version,
             true
         );
