@@ -22,7 +22,7 @@ if ( ! class_exists( 'Tribe__Extension' ) ) {
 
 class Tribe__Extension__Set__Default__Ticket__QTY extends Tribe__Extension {
 
-    private static $version = "1.1.0";
+    private static $version = '1.1.0';
 
     /**
      * Setup the Extension's properties.

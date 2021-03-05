@@ -25,7 +25,7 @@
 
     };
 
-    $ ( function () {
+    $( function () {
         Tribe_Ticket_Qty.init();
     } );
 
