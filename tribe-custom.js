@@ -19,7 +19,7 @@
             }
 
             if ( v2Container.length ) {
-                $( '.tribe-tickets__tickets-item-quantity-add' ).trigger( 'click' );
+                $( '.tribe-tickets__tickets-form .tribe-tickets__tickets-item-quantity-add' ).trigger( 'click' );
             }
         },
 

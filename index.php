@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Events Tickets Extension: Set default quantity of tickets to 1
  * Description:     An extension that Sets default quantity for tickets
- * Version:         1.1.0
+ * Version:         1.1.1
  * Extension Class: Tribe__Extension__Set__Default__Ticket__QTY
  * Author:          Modern Tribe, Inc.
  * Author URI:      http://m.tri.be/1971
