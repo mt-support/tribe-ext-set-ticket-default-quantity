@@ -88,10 +88,6 @@ class Tribe__Extension__Set__Default__Ticket__QTY extends Tribe__Extension {
         $valid_post_types = Tribe__Tickets__Main::instance()->post_types();
 
         // Check if the current post type is valid
-        if( ! in_array( $post_type, $valid_post_types ) ) {
-            return false;
-        }
-
-        return true;
+        return in_array( $post_type, $valid_post_types );
     }
 }
