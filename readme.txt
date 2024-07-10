@@ -23,16 +23,6 @@ Install and activate like any other plugin!
 * You can unzip the plugin and then upload to your plugin directory (typically _wp-content/plugins)_ via FTP
 * Once it has been installed or uploaded, simply visit the main plugin list and activate it
 
-== Adding Custom Post Types ==
-You can use the `set_default_quantity_for_tickets_valid_custom_post_types` filter to enable your Custom Post Types
-
-```PHP
-add_filter( 'set_default_quantity_for_tickets_valid_custom_post_types', function( $post_types ) {
-    $post_types[] = 'your_custom_post_type_slug';
-    return $post_types;
-} );
-```
-
 == Frequently Asked Questions ==
 
 = Where can I find more extensions? =
@@ -47,8 +37,7 @@ We're always interested in your feedback and our [premium forums](https://theeve
 
 = [1.2.0] 2024-07-10 =
 
-* Tweak - Enabled default WordPress post types
-* Tweak - Added set_default_quantity_for_tickets_valid_custom_post_types filter to use Custom Post Types
+* Tweak - Using the selected Post Types under "Tickets > Settings > General" to apply the extension feature.
 
 = [1.1.0] 2021-03-04 =
 
