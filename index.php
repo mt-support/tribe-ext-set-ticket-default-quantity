@@ -65,14 +65,17 @@ class Tribe__Extension__Set__Default__Ticket__QTY extends Tribe__Extension {
         );
     }
 
-	/**
-	 * Check if the current post is a valid post type for tickets
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return bool
-	 */
-	function is_valid_post_type() {
+    /**
+     * Checks if the current post type is valid.
+     *
+     * @since 1.0.0
+     *
+     * Valid post types include default WordPress post types and custom post types
+     * passed via the 'set_default_quantity_for_tickets_valid_custom_post_types' filter.
+     *
+     * @return bool True if the current post type is valid, false otherwise.
+     */
+    function is_valid_post_type() {
         // Generates an array with the default Post Types provided by WordPress and our Events post type
         $default_post_types = ['tribe_events', 'single', 'post', 'page'];
 
