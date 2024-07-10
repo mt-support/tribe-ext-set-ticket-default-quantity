@@ -66,46 +66,32 @@ class Tribe__Extension__Set__Default__Ticket__QTY extends Tribe__Extension {
     }
 
     /**
-     * Checks if the current post type is valid.
+     * Validates if the current post type is valid for ticketing.
+     *
+     * This function checks if the current post type is among the post types
+     * managed by the Tribe Tickets plugin.
      *
      * @since 1.0.0
      *
-     * Valid post types include default WordPress post types and custom post types
-     * passed via the 'set_default_quantity_for_tickets_valid_custom_post_types' filter.
-     *
-     * @return bool True if the current post type is valid, false otherwise.
+     * @return bool True if the post type is valid, false otherwise.
      */
     function is_valid_post_type() {
-        // Generates an array with the default Post Types provided by WordPress and our Events post type
-        $default_post_types = ['tribe_events', 'single', 'post', 'page'];
-
-        // get the current post type of the page
-        $post_type = get_post_type();
-
-        /**
-         * Filters the valid custom post types to include in the validation.
-         *
-         * @since 1.0.0
-         *
-         * @param array $custom_post_types An array of custom post type slugs.
-         */
-        $custom_post_types = apply_filters( 'set_default_quantity_for_tickets_valid_custom_post_types', [] );
-
-        $valid_post_types = array_merge( $default_post_types, $custom_post_types );
-
-        // bail if the current post type isn't valid
-        if ( ! in_array( $post_type, $valid_post_types ) ) {
+        // Ensure the Tribe__Tickets__Main class exists before proceeding
+        if ( ! class_exists( 'Tribe__Tickets__Main' ) ) {
             return false;
         }
 
-		if ( ! class_exists( 'Tribe__Tickets__Main' ) ) {
-			return false;
-		}
+        // Get the current post type of the page
+        $post_type = get_post_type();
 
-		if ( ! in_array( get_post_type(), Tribe__Tickets__Main::instance()->post_types() ) ) {
-			return false;
-		}
+        // Get the post types from the Tribe__Tickets__Main instance
+        $valid_post_types = Tribe__Tickets__Main::instance()->post_types();
 
-		return true;
-	}
+        // Check if the current post type is valid
+        if( ! in_array( $post_type, $valid_post_types ) ) {
+            return false;
+        }
+
+        return true;
+    }
 }
