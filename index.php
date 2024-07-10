@@ -73,10 +73,27 @@ class Tribe__Extension__Set__Default__Ticket__QTY extends Tribe__Extension {
 	 * @return bool
 	 */
 	function is_valid_post_type() {
-		// bail out if not on a Single Event page.
-		if ( ! is_single() ) {
-			return false;
-		}
+        // Generates an array with the default Post Types provided by WordPress and our Events post type
+        $default_post_types = ['tribe_events', 'single', 'post', 'page'];
+
+        // get the current post type of the page
+        $post_type = get_post_type();
+
+        /**
+         * Filters the valid custom post types to include in the validation.
+         *
+         * @since 1.0.0
+         *
+         * @param array $custom_post_types An array of custom post type slugs.
+         */
+        $custom_post_types = apply_filters( 'set_default_quantity_for_tickets_valid_custom_post_types', [] );
+
+        $valid_post_types = array_merge( $default_post_types, $custom_post_types );
+
+        // bail if the current post type isn't valid
+        if ( ! in_array( $post_type, $valid_post_types ) ) {
+            return false;
+        }
 
 		if ( ! class_exists( 'Tribe__Tickets__Main' ) ) {
 			return false;
