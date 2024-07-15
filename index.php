@@ -77,7 +77,7 @@ class Tribe__Extension__Set__Default__Ticket__QTY extends Tribe__Extension {
      */
     function is_valid_post_type() {
         // Ensure the Tribe__Tickets__Main class exists before proceeding
-        if ( ! class_exists( 'Tribe__Tickets__Main' ) ) {
+        if ( ! class_exists( 'Tribe__Tickets__Main', false ) ) {
             return false;
         }
 
