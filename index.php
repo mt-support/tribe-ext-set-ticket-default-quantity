@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Events Tickets Extension: Set default quantity of tickets to 1
  * Description:     An extension that Sets default quantity for tickets
- * Version:         1.1.0
+ * Version:         1.2.0
  * Extension Class: Tribe__Extension__Set__Default__Ticket__QTY
  * Author:          Modern Tribe, Inc.
  * Author URI:      http://m.tri.be/1971
@@ -22,7 +22,7 @@ if ( ! class_exists( 'Tribe__Extension' ) ) {
 
 class Tribe__Extension__Set__Default__Ticket__QTY extends Tribe__Extension {
 
-    private static $version = '1.1.0';
+    private static $version = '1.2.0';
 
     /**
      * Setup the Extension's properties.
@@ -65,27 +65,29 @@ class Tribe__Extension__Set__Default__Ticket__QTY extends Tribe__Extension {
         );
     }
 
-	/**
-	 * Check if the current post is a valid post type for tickets
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return bool
-	 */
-	function is_valid_post_type() {
-		// bail out if not on a Single Event page.
-		if ( ! is_single() ) {
-			return false;
-		}
+    /**
+     * Validates if the current post type is valid for ticketing.
+     *
+     * This function checks if the current post type is among the post types
+     * managed by the Tribe Tickets plugin.
+     *
+     * @since 1.0.0
+     *
+     * @return bool True if the post type is valid, false otherwise.
+     */
+    function is_valid_post_type() {
+        // Ensure the Tribe__Tickets__Main class exists before proceeding
+        if ( ! class_exists( 'Tribe__Tickets__Main', false ) ) {
+            return false;
+        }
 
-		if ( ! class_exists( 'Tribe__Tickets__Main' ) ) {
-			return false;
-		}
+        // Get the current post type of the page
+        $post_type = get_post_type();
 
-		if ( ! in_array( get_post_type(), Tribe__Tickets__Main::instance()->post_types() ) ) {
-			return false;
-		}
+        // Get the post types from the Tribe__Tickets__Main instance
+        $valid_post_types = Tribe__Tickets__Main::instance()->post_types();
 
-		return true;
-	}
+        // Check if the current post type is valid
+        return in_array( $post_type, $valid_post_types );
+    }
 }

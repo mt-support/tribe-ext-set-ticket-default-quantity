@@ -5,7 +5,7 @@ Tags: events, calendar
 Requires at least: 4.7
 Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPL version 2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,10 @@ Please visit our [extension library](https://theeventscalendar.com/extensions/) 
 We're always interested in your feedback and our [premium forums](https://theeventscalendar.com/support-forums/) are the best place to flag any issues. Do note, however, that the degree of support we provide for extensions like this one tends to be very limited.
 
 == Changelog ==
+
+= [1.2.0] 2024-07-10 =
+
+* Tweak - Using the selected Post Types under "Tickets > Settings > General" to apply the extension feature.
 
 = [1.1.0] 2021-03-04 =
 
